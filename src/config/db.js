@@ -55,13 +55,26 @@ export const initDb = async () => {
     );
   `;
 
+  const createDrivingLessonsTable = `
+    CREATE TABLE IF NOT EXISTS driving_lesson_progress (
+      id SERIAL PRIMARY KEY,
+      progress_key VARCHAR(50) UNIQUE NOT NULL DEFAULT 'default',
+      total_lessons INT NOT NULL DEFAULT 20,
+      lessons JSONB NOT NULL DEFAULT '[]'::jsonb,
+      completed_count INT NOT NULL DEFAULT 0,
+      progress_percent INT NOT NULL DEFAULT 0,
+      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+  `;
+
   try {
     const client = await pool.connect();
     console.log('🐘 Connected to PostgreSQL Neon Cloud Database successfully!');
     await client.query(createNotesTable);
     await client.query(createTasksTable);
     await client.query(createEmailsTable);
-    console.log('✅ PostgreSQL database tables (notes, tasks, emails) verified/created.');
+    await client.query(createDrivingLessonsTable);
+    console.log('✅ PostgreSQL database tables (notes, tasks, emails, driving_lesson_progress) verified/created.');
     client.release();
   } catch (err) {
     console.error('❌ PostgreSQL connection/initialization error:', err.message);

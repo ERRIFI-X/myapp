@@ -44,3 +44,6 @@ src/
 
 - `GET /` - Root welcoming endpoint
 - `GET /api/v1/health` - Server status & health check endpoint
+- `GET /api/v1/driving-lessons` - Fetch 20-lesson progress snapshot
+- `PUT /api/v1/driving-lessons` - Replace or toggle lesson progress
+- `POST /api/v1/driving-lessons/reset` - Reset all lessons to incomplete

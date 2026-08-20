@@ -11,6 +11,7 @@ const startServer = async () => {
     console.log(`📍 Health Endpoint: http://localhost:${config.port}/api/v1/health`);
     console.log(`📍 Notes API:       http://localhost:${config.port}/api/v1/notes`);
     console.log(`📍 Email & n8n API: http://localhost:${config.port}/api/v1/emails/send`);
+    console.log(`📍 Driving Lessons: http://localhost:${config.port}/api/v1/driving-lessons`);
   });
 
   const gracefulShutdown = (signal) => {
