@@ -4,6 +4,7 @@ import notesRoutes from './notes.routes.js';
 import emailRoutes from './email.routes.js';
 import tasksRoutes from './tasks.routes.js';
 import drivingLessonsRoutes from './drivingLessons.routes.js';
+import inscriptionsRoutes from './inscriptions.routes.js';
 
 const router = Router();
 
@@ -12,5 +13,6 @@ router.use('/notes', notesRoutes);
 router.use('/emails', emailRoutes);
 router.use('/tasks', tasksRoutes);
 router.use('/driving-lessons', drivingLessonsRoutes);
+router.use('/inscriptions', inscriptionsRoutes);
 
 export default router;
